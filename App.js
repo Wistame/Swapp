@@ -1,30 +1,28 @@
+import 'react-native-gesture-handler';
 import React, { Fragment, Component, useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Button,
-  Text
+  SafeAreaView, StyleSheet,View,
+  Button, Text
 } from 'react-native';
 
+
+
+const Stack = createStackNavigator();
+
 const Counter = ()=>{
-  
   [count, setCount] = useState(0);
 
-
   const decrementCount = ()=> {
-    
     setCount(count + 1); 
     console.log(`increment ${count}`)
-
   }
   const incrementCount = () => {
-
     setCount(count - 1); 
     console.log(`decrement ${count}`)
   }
 
-  
     return (
       <View styles={styles.container}>
         <Button
@@ -46,7 +44,11 @@ const Counter = ()=>{
 
 const  App =() => {
  return (
- <Counter />
+   <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Counter" component={Counter} />
+      </Stack.Navigator>
+   </NavigationContainer>
 )
 };
 
