@@ -6,11 +6,19 @@ import {
   SafeAreaView, StyleSheet,View,
   Button, Text
 } from 'react-native';
+import { Provider } from 'react-redux'
+import { createStore, combineReducers } from 'redux'
 
 
-
+const reducers = {
+  todos: (state= []) =>{
+    return state
+  }
+}
 const Stack = createStackNavigator();
-
+const store = createStore(combineReducers({
+  ...reducers
+}));
 const Counter = ()=>{
   [count, setCount] = useState(0);
 
@@ -42,11 +50,13 @@ const Counter = ()=>{
 
 const  App =() => {
  return (
+   <Provider store={store}>
    <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Counter" component={Counter} />
       </Stack.Navigator>
    </NavigationContainer>
+   </Provider>
 )
 };
 
