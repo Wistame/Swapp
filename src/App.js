@@ -40,8 +40,6 @@ const Counter = ()=>{
 }
 
 
-
-
 const  App =() => {
  return (
    <NavigationContainer>
