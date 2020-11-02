@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {View, FlatList, StyleSheet} from 'react-native'
 import ListItem from './ListItem'
 import { connect } from 'react-redux'
-import { complete } from '../../reducers/todos'
+import { complete, submit } from '../../reducers/todos'
+import Input from '../Input'
 
 const styles = StyleSheet.create({
  container: {
@@ -17,9 +18,20 @@ const styles = StyleSheet.create({
  }
 })
 
-const List = ({data, complete}) =>{
+const List = ({data, complete, submit}) =>{
+
+    const [value, setValue] = useState('');
+    handleChange = (val) =>{
+        console.log(val)
+        setValue(val)
+    }
+    const handleSubmit = () =>{
+        submit(value);
+        setValue('');
+    }
   return( 
       <View style={styles.container}>
+          <Input onSubmit={handleSubmit} onChange={handleChange} value={value} />
           <FlatList
             style={styles.list}
             data={data}
@@ -35,6 +47,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch =>({
-    complete: (id) => dispatch(complete(id))
+    complete: (id) => dispatch(complete(id)),
+    submit: (val) => dispatch(submit(val))
 })
 export default connect(mapStateToProps,mapDispatchToProps)(List)
