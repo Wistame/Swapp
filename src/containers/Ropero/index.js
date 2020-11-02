@@ -9,7 +9,7 @@ const styles = StyleSheet.create ({
 const Ropero = () =>{
 
     return(<View>
-        <Text style={styles.title}>Perfil</Text>
+        <Text style={styles.title}>Ropero</Text>
     </View>
     )
 

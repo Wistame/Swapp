@@ -9,7 +9,7 @@ const styles = StyleSheet.create ({
 const Swaps = () =>{
 
     return(<View>
-        <Text style={styles.title}>Perfil</Text>
+        <Text style={styles.title}>Swaps</Text>
     </View>
     )
 

@@ -3,7 +3,7 @@ import {View, FlatList, StyleSheet} from 'react-native'
 import ListItem from './ListItem'
 import { connect } from 'react-redux'
 import { complete, submit } from '../../reducers/todos'
-import Input from '../Input'
+import Input from '../Input/index'
 
 const styles = StyleSheet.create({
  container: {
