@@ -8,6 +8,7 @@ const styles= StyleSheet.create({
     categoryButtonHolder:{
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: "space-evenly"
     }
     
 })
@@ -17,9 +18,9 @@ const CategoriaRopa = ()  =>{
     return(
         <View style={styles.categoryButtonHolder}>
             <CategoryButton text='Remeras' imageUri={require('../../assets/1.png')} />
-            <CategoryButton text='Pantalones' imageUri={require('../../assets/1.png')} />
+            <CategoryButton text='Pantalones' imageUri={require('../../assets/pantalon.png')} />
             <CategoryButton text='Camperas' imageUri={require('../../assets/1.png')} />
-            <CategoryButton text='Buzos' imageUri={require('../../assets/1.png')} />
+            <CategoryButton text='Buzos' imageUri={require('../../assets/buzo.png')} />
             <CategoryButton text='Vestidos' imageUri={require('../../assets/1.png')} />
         </View>
     )}

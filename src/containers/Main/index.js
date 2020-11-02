@@ -7,65 +7,11 @@ import Swaps from '../Swaps/index'
 import Perfil from '../Perfil/index'
 import Swappear from '../Perfil/index'
 import Ropero from '../Ropero/index'
-
+import styles from './style'
 
 import { SearchBar } from 'react-native-elements';
 
 const Tab = createBottomTabNavigator();
-
-
-const styles= StyleSheet.create({
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#1F1F1F',
-    },
-    categoryButtonHolder:{
-        display: 'flex',
-        flexDirection: 'row',
-    },
-
-    ScrollView: {    
-        backgroundColor:'white',
-        flex: 1
-    },
-    body:{
-        paddingLeft: 40,
-    },
-    image:{
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center",
-        height: 200
-    },
-    goToSwap: {
-        backgroundColor: 'white',
-        height: 50,
-        width: 150,
-        borderRadius: 24,
-        justifyContent: 'space-between',
-        flexDirection: 'row'
-    },
-    goToSwapText:{
-        alignSelf: 'center',
-        fontSize: 20,
-        marginLeft: 10,
-        fontWeight: 'bold',
-        color: '#727C8E',
-  
-    }
-    
-})
-
-
-
-
-
-
-
-
-
-
 
 const Inicio = () =>{
 
@@ -85,19 +31,27 @@ const Inicio = () =>{
             <SearchBar
                 placeholder="Buscar prendas"
                 onChangeText={onChangeSearch}
-                value={search}
-                containerStyle ={{backgroundColor: 'white'}}
+                value={search}      
+                containerStyle={{backgroundColor: 'white'}}
+                inputStyle={[styles.greySearch, {color: '#3C3C4399'}]}
+                leftIconContainerStyle={styles.greySearch}
+                rightIconContainerStyle={styles.greySearch}
+                inputContainerStyle={styles.greySearch}
+
             />
             <Text style={styles.title} >Categorías</Text>
-            <CategoriaRopa />
-           <View>
-               
-
-           </View>
-        
+            <CategoriaRopa />        
            <View>
                 <Text style={styles.title} >Visto Recientemente</Text>
-                <ImageBackground style={styles.image} source={require('../../assets/firstImage.png')}>
+                <ImageBackground style={styles.image}  imageStyle={{ borderRadius: 15}} source={require('../../assets/firstImage.png')}>
+                    <View style={styles.goToSwap}>
+                        <Text style={styles.goToSwapText}>Swappear</Text>
+                        <View style={{height: 30, alignSelf: 'center'}}>
+                        <Image style={{height: 50, width: 50, flex: 1,  }} resizeMode="contain" source={require('../../assets/SwapArrow.png')} />
+                        </View>
+                    </View>
+                </ImageBackground>
+                <ImageBackground style={styles.image} imageStyle={{ borderRadius: 15}} source={require('../../assets/scndImage.png')}>
                     <View style={styles.goToSwap}>
                         <Text style={styles.goToSwapText}>Swappear</Text>
                         <View style={{height: 30, alignSelf: 'center'}}>
@@ -118,8 +72,6 @@ const Inicio = () =>{
 }
 
 
-
-
 const Main = () =>{
 
     return(
@@ -132,8 +84,5 @@ const Main = () =>{
         </Tab.Navigator>
     )
 }
-
-
-
 
 export default Main;

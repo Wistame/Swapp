@@ -6,13 +6,13 @@ const styles = StyleSheet.create ({
     image:{
         width:60,
         height: 60
-    }
+    },
 
 })
 const CategoryButton = ({ text, imageUri}) =>{
     
     return ( 
-        <View>
+        <View style={{alignItems: "center"}}>
             <Image style={styles.image} source={imageUri}/>
             <Text>{text}</Text>
         </View>
